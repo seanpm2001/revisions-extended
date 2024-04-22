@@ -1,6 +1,7 @@
 /**
  * WordPress dependencies
  */
+import { createRoot } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 import { format } from '@wordpress/date';
 import { addQueryArgs } from '@wordpress/url';
@@ -117,8 +118,11 @@ export const insertButton = ( newNode ) => {
 
 	insertContainer( btnDomRef );
 
-	/* eslint-disable no-undef*/
-	ReactDOM.render( newNode, document.getElementById( CONTAINER_ID ) );
+
+	const root = createRoot( document.getElementById( CONTAINER_ID ) );
+
+	root.render( newNode );
+
 };
 
 /**
